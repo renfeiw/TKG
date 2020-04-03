@@ -28,6 +28,6 @@ cleanBuild:
 clean: cleanBuild
 	$(RM) -r $(TEST_ROOT)$(D)TKG$(D)test_output_*
 	$(RM) $(FAILEDTARGETS)
-	ant -f $(TEST_ROOT)$(D)TKG$(D)scripts/build_tools.xml clean
+	$(ANT) -f $(TEST_ROOT)$(D)TKG$(D)scripts/build_tools.xml clean
 
 .PHONY: cleanBuild clean

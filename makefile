@@ -19,10 +19,23 @@
 ifndef TEST_JDK_HOME
 $(error Please provide TEST_JDK_HOME value.)
 else
-export TEST_JDK_HOME:=$(subst \,/,$(TEST_JDK_HOME))
+export TEST_JDK_HOME := $(subst \,/,$(TEST_JDK_HOME))
 export OLD_JAVA_HOME := $(JAVA_HOME)
 export JAVA_HOME := $(TEST_JDK_HOME)
 $(info JAVA_HOME is set to $(JAVA_HOME))
+endif
+
+ifndef FRAMEWORK_JDK_HOME
+export FRAMEWORK_JDK_HOME := $(TEST_JDK_HOME)
+endif
+$(info FRAMEWORK_JDK_HOME is set to $(FRAMEWORK_JDK_HOME))
+
+
+ifndef ANT_HOME
+export ANT := ant
+else
+$(info ANT_HOME is set to $(ANT_HOME))
+export ANT := $(ANT_HOME)/ant
 endif
 
 D = /
@@ -81,7 +94,7 @@ endif
 # compile tools
 #######################################
 include moveDmp.mk
-COMPILE_TOOLS_CMD=ant -f .$(D)scripts$(D)build_tools.xml -DTEST_JDK_HOME=$(TEST_JDK_HOME)
+COMPILE_TOOLS_CMD=$(ANT) -f .$(D)scripts$(D)build_tools.xml -DFRAMEWORK_JDK_HOME=$(FRAMEWORK_JDK_HOME)
 
 compileTools: getdependency
 	$(RM) -r $(COMPILATION_OUTPUT); \

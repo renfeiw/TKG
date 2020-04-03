@@ -32,7 +32,7 @@
 		<echo>============COMPILER SETTINGS============</echo>
 		<echo>===fork:                         yes</echo>
 		<echo>===debug:                        on</echo>
-		<javac srcdir="${src}" destdir="${build}" debug="true" fork="true" executable="${TEST_JDK_HOME}/bin/javac" includeAntRuntime="false" encoding="ISO-8859-1">
+		<javac srcdir="${src}" destdir="${build}" debug="true" fork="true" executable="${FRAMEWORK_JDK_HOME}/bin/javac" includeAntRuntime="false" encoding="ISO-8859-1">
 			<classpath>
 				<pathelement location="${json.jar}" />
 			</classpath>
