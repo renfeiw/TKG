@@ -55,6 +55,8 @@ print "path is set to $path\n";
 print "task is set to $task\n";
 print "os   is set to $os\n";
 
+print "osname is $^O";
+
 # Define a a hash for each dependent jar
 # Contents in the hash should be: 
 #   url - required. url to download the dependent jar
